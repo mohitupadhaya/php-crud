@@ -1,28 +1,15 @@
 pipeline {
-    agent any
+    agent {
+        node {
+            label 'built-in'
+        }
+    }
 
     stages {
-        stage('Checkout') {
+        stage('RUN CHECK') {
             steps {
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                echo 'Building the application'
-            }
-        }
-
-        stage('Test') {
-            steps {
-                echo 'Running test'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Deploying the app'
+                echo "Running on node: ${env.NODE_NAME}"
+                echo "Workspace: ${env.WORKSPACE}"
             }
         }
     }
