@@ -1,16 +1,11 @@
 pipeline {
-    agent {
-        node {
-            label 'built-in'
-        }
-    }
-
+    agent any
     stages {
-        stage('RUN CHECK') {
+        stage('PLUGIN TEST') {
             steps {
-                echo "Running on node: ${env.NODE_NAME}"
-                echo "Workspace: ${env.WORKSPACE}"
+                echo 'Pipeline is finally running'
             }
         }
     }
 }
+
